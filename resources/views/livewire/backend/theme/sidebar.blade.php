@@ -8,18 +8,30 @@
         </div>
     </div>
     <ul class="nav-menu">
-        <li class="nav-menu-item router-link-active">
-            <a href="{{ route('dashboard') }}" wire:navigate>
+        <li class="nav-menu-item {{ Route::is('admin.dashboard') ? 'router-link-active' : '' }}">
+            <a href="{{ route('admin.dashboard') }}" wire:navigate>
                 <i class="feather icon-home"></i>
                 <span class="nav-menu-item-title">Dashboard</span>
             </a>
         </li>
         <li class="nav-group-title">APPS</li>
-        <li class="nav-menu-item">
-            <a href="v-mail.html">
-                <i class="feather icon-mail"></i>
-                <span class="nav-menu-item-title">Mail</span>
+        <li class="nav-submenu {{ Route::is('admin.district.index') || Route::is('admin.city.index') ? 'open' : '' }}">
+            <a class="nav-submenu-title">
+                <i class="feather icon-box"></i>
+                <span>Address</span>
+                <i class="nav-submenu-arrow"></i>
             </a>
+            <ul class="nav-menu menu-collapse {{ Route::is('admin.district.index') || Route::is('admin.city.index') ? 'd-block' : '' }}">
+
+                <li class="nav-menu-item {{ Route::is('admin.district.index') ? 'router-link-active' : '' }}">
+                    <a href="{{ route('admin.district.index')}}" wire:navigate>District</a>
+                </li>
+                
+                <li class="nav-menu-item {{ Route::is('admin.city.index') ? 'router-link-active' : '' }}">
+                    <a href="{{ route('admin.city.index')}}" wire:navigate>City</a>
+                </li>
+    
+            </ul>
         </li>
         <li class="nav-menu-item">
             <a href="v-chat.html">
@@ -34,39 +46,7 @@
             </a>
         </li>
         <li class="nav-group-title">USER INTERFACE</li>
-        <li class="nav-submenu">
-            <a class="nav-submenu-title">
-                <i class="feather icon-box"></i>
-                <span>UI Elements</span>
-                <i class="nav-submenu-arrow"></i>
-            </a>
-            <ul class="nav-menu menu-collapse">
-                <li class="nav-menu-item">
-                    <a href="v-avatar.html">Avatar</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="v-alert.html">Alert</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="v-badge.html">Badge</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="v-buttons.html">Buttons</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="v-cards.html">Cards</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="v-icons.html">Icons</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="v-lists.html">Lists</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="v-typography.html">Typography</a>
-                </li>
-            </ul>
-        </li>
+
         <li class="nav-submenu">
             <a class="nav-submenu-title">
                 <i class="feather icon-package"></i>

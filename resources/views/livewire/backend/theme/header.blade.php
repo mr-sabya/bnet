@@ -26,7 +26,7 @@
                         <div class="nav-notification-body">
                             <div class="nav-notification-item ">
                                 <div class="avatar avatar-circle avatar-image" style="width: 40px; height: 40px; line-height: 40px;">
-                                    <img src="assets/images/avatars/thumb-8.jpg" alt="">
+                                    <img src="{{ url('assets/backend/images/avatars/thumb-8.jpg') }}" alt="">
                                 </div>
                                 <div class="ms-2">
                                     <span>
@@ -67,7 +67,7 @@
                             </div>
                             <div class="nav-notification-item ">
                                 <div class="avatar avatar-circle avatar-image" style="width: 40px; height: 40px; line-height: 40px;">
-                                    <img src="assets/images/avatars/thumb-4.jpg" alt="">
+                                    <img src="{{ url('assets/backend/images/avatars/thumb-4.jpg') }}" alt="">
                                 </div>
                                 <div class="ms-2">
                                     <span>
@@ -100,40 +100,9 @@
                     </div>
                 </div>
             </div>
-            <div class="header-nav-item">
-                <div class="header-nav-item-select">
-                    <div class="toggle-wrapper" data-bs-toggle="modal" data-bs-target="#quick-view">
-                        <i class="nav-icon feather icon-settings"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="header-nav-item">
-                <div class="dropdown header-nav-item-select">
-                    <div class="toggle-wrapper" id="nav-lang-dropdown" data-bs-toggle="dropdown">
-                        <div class="avatar avatar-circle avatar-image" style="width: 22px; height: 22px; line-height: 22px;">
-                            <img src="{{ url('assets/backend/images/thumbs/en_US.png') }}" alt="">
-                        </div>
-                    </div>
-                    <div class="dropdown-menu dropdown-menu-end">
-                        <a href="javascript:void(0)" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <div class="avatar avatar-circle avatar-image" style="width: 18px; height: 18px; line-height: 18px;">
-                                    <img src="{{ url('assets/backend/images/thumbs/en_US.png') }}" alt="">
-                                </div>
-                                <span class="ms-2">English</span>
-                            </div>
-                        </a>
-                        <a href="javascript:void(0)" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <div class="avatar avatar-circle avatar-image" style="width: 18px; height: 18px; line-height: 18px;">
-                                    <img src="{{ url('assets/backend/images/thumbs/fr_FR.png') }}" alt="">
-                                </div>
-                                <span class="ms-2">French</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            
+            
+        
             <div class="header-nav-item">
                 <div class="dropdown header-nav-item-select nav-profile">
                     <div class="toggle-wrapper" id="nav-profile-dropdown" data-bs-toggle="dropdown">

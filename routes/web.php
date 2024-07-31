@@ -19,6 +19,3 @@ Route::get('service', [\App\Http\Controllers\Frontend\ServiceController::class, 
 Route::get('news', [\App\Http\Controllers\Frontend\PostController::class, 'index'])->name('post.index');
 Route::get('contact', [\App\Http\Controllers\Frontend\ContactController::class, 'index'])->name('contact');
 
-
-
-Route::get('/admin', [\App\Http\Controllers\Backend\HomeController::class, 'index'])->name('dashboard');

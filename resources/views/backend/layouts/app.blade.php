@@ -9,11 +9,10 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('assets/backend/images/logo/favicon.ico') }}">
 
-    <!-- page css -->
-
     <!-- Core css -->
     <link href="{{ asset('assets/backend/css/app.min.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('assets/backend/vendors/toastr/toastr.min.css') }}" rel="stylesheet" />
+    @livewireStyles
 </head>
 
 <body>
@@ -48,16 +47,29 @@
         </div>
     </div>
 
-
     <!-- Core Vendors JS -->
     <script data-navigate-once="true" src="{{ asset('assets/backend/js/vendors.min.js') }}"></script>
 
-    <!-- page js -->
-    <script data-navigate-once="true" src="{{ asset('assets/backend/vendors/apexcharts/dist/apexcharts.min.js') }}"></script>
-    <script data-navigate-once="true" src="{{ asset('assets/backend/js/pages/dashboard.js') }}"></script>
+    @yield('page-scripts')
+    <script src="{{ asset('assets/backend/vendors/toastr/toastr.min.js') }}"></script>
 
     <!-- Core JS -->
     <script data-navigate-once="true" src="{{ asset('assets/backend/js/app.min.js') }}"></script>
+    <script data-navigate-once="true" src="{{ asset('assets/backend/js/custom.js') }}"></script>
+
+    @if(Session::has('success'))
+    <script>
+        toastr['success']('{{ Session::get("success") }}');
+    </script>
+    @endif
+
+    @if(Session::has('error'))
+    <script>
+        toastr['error']('{{ Session::get("success") }}');
+    </script>
+    @endif
+
+    @livewireScripts
 
 </body>
 

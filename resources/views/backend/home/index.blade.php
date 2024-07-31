@@ -542,3 +542,9 @@
     </div>
 </div>
 @endsection
+
+@section('page-scripts')
+<!-- page js -->
+<script data-navigate-once="true" src="{{ asset('assets/backend/vendors/apexcharts/dist/apexcharts.min.js') }}"></script>
+<script data-navigate-once="true" src="{{ asset('assets/backend/js/pages/dashboard.js') }}"></script>
+@endsection
