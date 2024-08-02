@@ -21,6 +21,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'image',
+        'district_id',
+        'city_id',
+        'refer_code',
+        'refer_id', 
+        'is_admin',
     ];
 
     /**
@@ -42,4 +49,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function IsAdmin()
+    {
+        if ($this->is_admin == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

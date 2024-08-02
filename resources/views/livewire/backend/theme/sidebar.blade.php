@@ -33,16 +33,16 @@
     
             </ul>
         </li>
-        <li class="nav-menu-item">
-            <a href="v-chat.html">
+        <li class="nav-menu-item {{ Route::is('admin.ftp.index') ? 'router-link-active' : '' }}">
+            <a href="{{ route('admin.ftp.index') }}" wire:navigate>
                 <i class="feather icon-message-circle"></i>
-                <span class="nav-menu-item-title">Chat</span>
+                <span class="nav-menu-item-title">FTP Server</span>
             </a>
         </li>
-        <li class="nav-menu-item">
-            <a href="v-calendar.html">
+        <li class="nav-menu-item {{ Route::is('admin.livetv.index') ? 'router-link-active' : '' }}">
+            <a href="{{ route('admin.livetv.index') }}" wire:navigate>
                 <i class="feather icon-calendar"></i>
-                <span class="nav-menu-item-title">Calendar</span>
+                <span class="nav-menu-item-title">Live TV</span>
             </a>
         </li>
         <li class="nav-group-title">USER INTERFACE</li>

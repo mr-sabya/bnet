@@ -18,7 +18,8 @@
                 <button wire:click="clearShort" class="btn btn-primary">Clear</button>
             </div>
         </div>
-        <div class="search w-lg-25">
+        <div class="search w-lg-25 d-flex align-items-center gap-3">
+            <p class="m-0">Search</p>
             <input type="text" class="form-control" wire:model.live="search">
         </div>
     </div>

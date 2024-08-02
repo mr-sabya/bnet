@@ -100,9 +100,9 @@
                     </div>
                 </div>
             </div>
-            
-            
-        
+
+
+
             <div class="header-nav-item">
                 <div class="dropdown header-nav-item-select nav-profile">
                     <div class="toggle-wrapper" id="nav-profile-dropdown" data-bs-toggle="dropdown">
@@ -141,11 +141,7 @@
                                 <span>Support</span>
                             </div>
                         </a>
-                        <a href="javascript:void(0)" class="dropdown-item">
-                            <div class="d-flex align-items-center"><i class="font-size-lg me-2 feather icon-power"></i>
-                                <span>Sign Out</span>
-                            </div>
-                        </a>
+                        <livewire:backend.auth.logout />
                     </div>
                 </div>
             </div>
