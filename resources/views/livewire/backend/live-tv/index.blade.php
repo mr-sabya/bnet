@@ -10,7 +10,7 @@
             <div class="card-body">
                 <form action="">
                     @if($livetv)
-                    <input type="hidden" wire:model="districtId">
+                    <input type="hidden" wire:model="livetvId">
                     @endif
 
                     <div class="mb-3">

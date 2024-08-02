@@ -28,7 +28,7 @@
                             <li>Home broadband</li>
                         </ul>
                     </div>
-                    <h2 class="pricing-three-price"><span>From</span> 15.99<span>/mon</span></h2>
+                    <h2 class="pricing-three-price"><span>৳</span> 15.99<span>/mon</span></h2>
                     <a href="pricing.html" class="btn transparent-btn">Get Started</a>
                 </div>
             </div>

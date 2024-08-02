@@ -45,6 +45,12 @@
                 <span class="nav-menu-item-title">Live TV</span>
             </a>
         </li>
+        <li class="nav-menu-item {{ Route::is('admin.package.index') ? 'router-link-active' : '' }}">
+            <a href="{{ route('admin.package.index') }}" wire:navigate>
+                <i class="feather icon-calendar"></i>
+                <span class="nav-menu-item-title">Package</span>
+            </a>
+        </li>
         <li class="nav-group-title">USER INTERFACE</li>
 
         <li class="nav-submenu">

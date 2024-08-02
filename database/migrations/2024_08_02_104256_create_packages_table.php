@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('bandwidth');
+            $table->integer('bandwidth');
             $table->integer('price');
             $table->string('feature_1');
             $table->string('feature_2');
