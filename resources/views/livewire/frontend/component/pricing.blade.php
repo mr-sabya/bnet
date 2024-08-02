@@ -9,58 +9,12 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
+            @foreach($packages as $package)
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
                 <div class="pricing-three-item mb-30">
                     <div class="pricing-three-head">
-                        <h4 class="title">Starter Bundle</h4>
-                        <span class="devices-support">02 Devices</span>
-                        <ul class="devices-icon-wrap">
-                            <li><i class="flaticon-tv"></i></li>
-                            <li><i class="flaticon-wifi-router-1"></i></li>
-                        </ul>
-                    </div>
-                    <div class="pricing-three-list">
-                        <ul>
-                            <li>Home broadband</li>
-                            <li>Satellite TV</li>
-                            <li>Cell phone connection</li>
-                            <li>Home security</li>
-                            <li>Home broadband</li>
-                        </ul>
-                    </div>
-                    <h2 class="pricing-three-price"><span>৳</span> 15.99<span>/mon</span></h2>
-                    <a href="pricing.html" class="btn transparent-btn">Get Started</a>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
-                <div class="pricing-three-item mb-30">
-                    <div class="pricing-three-head">
-                        <h4 class="title">Combo Bundle</h4>
-                        <span class="devices-support">03 Devices</span>
-                        <ul class="devices-icon-wrap">
-                            <li><i class="flaticon-tv"></i></li>
-                            <li><i class="flaticon-wifi-router-1"></i></li>
-                            <li><i class="flaticon-device"></i></li>
-                        </ul>
-                    </div>
-                    <div class="pricing-three-list">
-                        <ul>
-                            <li>Home broadband</li>
-                            <li>Satellite TV</li>
-                            <li>Cell phone connection</li>
-                            <li>Home security</li>
-                            <li>Home broadband</li>
-                        </ul>
-                    </div>
-                    <h2 class="pricing-three-price"><span>From</span> 25.99<span>/mon</span></h2>
-                    <a href="pricing.html" class="btn transparent-btn">Get Started</a>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
-                <div class="pricing-three-item mb-30">
-                    <div class="pricing-three-head">
-                        <h4 class="title">Premium Bundle</h4>
-                        <span class="devices-support">04 Devices</span>
+                        <h4 class="title">{{ $package->name }}</h4>
+                        <span class="devices-support">{{ $package->bandwidth }}mbps</span>
                         <ul class="devices-icon-wrap">
                             <li><i class="flaticon-tv"></i></li>
                             <li><i class="flaticon-wifi-router-1"></i></li>
@@ -70,39 +24,20 @@
                     </div>
                     <div class="pricing-three-list">
                         <ul>
-                            <li>Home broadband</li>
-                            <li>Satellite TV</li>
-                            <li>Cell phone connection</li>
-                            <li>Home security</li>
-                            <li>Home broadband</li>
+                            <li>{{ $package->feature_1 }}</li>
+                            <li>{{ $package->feature_2 }}</li>
+                            <li>{{ $package->feature_3 }}</li>
+                            <li>{{ $package->feature_4 }}</li>
+                            <li>{{ $package->feature_5 }}</li>
+                            <li>{{ $package->feature_6 }}</li>
+                            <li>{{ $package->feature_7 }}</li>
                         </ul>
                     </div>
-                    <h2 class="pricing-three-price"><span>From</span> 45.99<span>/mon</span></h2>
-                    <a href="pricing.html" class="btn transparent-btn">Get Started</a>
+                    <h2 class="pricing-three-price"><span>৳</span> {{ $package->price }}<span>/mon</span></h2>
+                    <a href="#" class="btn transparent-btn">Get Started</a>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
-                <div class="pricing-three-item mb-30">
-                    <div class="pricing-three-head">
-                        <h4 class="title">Full House Pack</h4>
-                        <span class="devices-support">Any Devices</span>
-                        <ul class="devices-icon-wrap">
-                            <li><i class="flaticon-device-1"></i></li>
-                        </ul>
-                    </div>
-                    <div class="pricing-three-list">
-                        <ul>
-                            <li>Home broadband</li>
-                            <li>Satellite TV</li>
-                            <li>Cell phone connection</li>
-                            <li>Home security</li>
-                            <li>Home broadband</li>
-                        </ul>
-                    </div>
-                    <h2 class="pricing-three-price"><span>From</span> 85.99<span>/mon</span></h2>
-                    <a href="pricing.html" class="btn transparent-btn">Get Started</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

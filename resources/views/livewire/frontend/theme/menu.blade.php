@@ -9,15 +9,17 @@
 
     <li class="menu-item-has-children"><a href="#">FTP Server</a>
         <ul class="sub-menu">
-            <li><a href="pricing.html">Our Packages</a></li>
-            <li><a href="team.html">Creative Team</a></li>
+            @foreach($servers as $server)
+            <li><a href="{{ $server->link }}" target="_blank">{{ $server->title}}</a></li>
+            @endforeach
         </ul>
     </li>
 
     <li class="menu-item-has-children"><a href="#">Live Tv</a>
         <ul class="sub-menu">
-            <li><a href="pricing.html">Our Packages</a></li>
-            <li><a href="team.html">Creative Team</a></li>
+            @foreach($livetvs as $livetv)
+            <li><a href="{{ $livetv->link }}" target="_blank">{{ $livetv->title}}</a></li>
+            @endforeach
         </ul>
     </li>
 
