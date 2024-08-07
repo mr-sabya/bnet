@@ -3,8 +3,8 @@
         <div class="row justify-content-center">
             <div class="col-xl-8 col-lg-10 col-md-11">
                 <div class="section-title text-center mb-55">
-                    <h2 class="title">Let's Discover Our Best Packages</h2>
-                    <p>We are the broadband internet service provider situated at New York City and on the other big reason pay more should is that they're too loyal.</p>
+                    <h2 class="title">{{ $home->package_section_heading }}</h2>
+                    <p>{{ $home->package_section_text }}</p>
                 </div>
             </div>
         </div>

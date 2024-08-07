@@ -11,16 +11,16 @@
                                 </div>
                                 <div class="content">
                                     <span>Call us 24/7</span>
-                                    <h6 class="title"><a href="tel:987547587587">(987) 547587587</a></h6>
+                                    <h6 class="title"><a href="tel:{{ $setting->phone }}">{{ $setting->phone }}</a></h6>
                                 </div>
                             </div>
                             <h6 class="title">Contact info</h6>
-                            <p>Street House, Greater London NW1 8JR, UK</p>
+                            <p>{{ $setting->address }}</p>
                             <div class="footer-social">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="{{ $setting->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="{{ $setting->twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="{{ $setting->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                                <a href="{{ $setting->linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>
