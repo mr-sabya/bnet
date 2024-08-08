@@ -3,19 +3,18 @@
         <div class="row align-items-center">
             <div class="col-lg-6 order-0 order-lg-2">
                 <div class="progress-video">
-                    <img src="{{ url('assets/frontend/imgs/images/progress_img.png') }}" alt="">
+                    <img src="{{ getFileUrl($about->skill_section_image) }}" alt="">
                     <div class="video-paly">
-                        <a href="https://www.youtube.com/watch?v=XHOmBV4js_E" class="popup-video"><i class="fas fa-play"></i></a>
+                        <a href="{{ $about->skill_section_video }}" class="popup-video"><i class="fas fa-play"></i></a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="section-title mb-30">
-                    <h2 class="title">We've The Best Skilled & Experienced Team</h2>
+                    <h2 class="title">{{ $about->skill_section_heading }}</h2>
                 </div>
                 <div class="experience-content">
-                    <p>Gauge your students’ skill level with the initial test and follow their progress.
-                        Internet to connect your computer, phone, and numerous other devices.</p>
+                    <p>{{ $about->skill_section_text }}</p>
                     <div class="progress-item">
                         <span class="title">Technical Skills</span>
                         <div class="progress--bar" data-percentage="90%">

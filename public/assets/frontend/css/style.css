@@ -3754,7 +3754,8 @@ label {
 .contact-form .form-grp input:focus + label,
 .contact-form .form-grp input:valid + label,
 .contact-form .form-grp textarea:focus + label,
-.contact-form .form-grp textarea:valid + label {
+.contact-form .form-grp textarea:valid + label,
+.contact-form .form-grp .form-select + label{
   font-size: 15px;
   font-weight: 500;
   color: var(--bd-heading-primary);

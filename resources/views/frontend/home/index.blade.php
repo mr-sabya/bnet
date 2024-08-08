@@ -43,10 +43,12 @@
 <!-- brand-area-end -->
 
 
+
+@if(Session::get('showmodal') != 'dontshow')
 <!-- quote-modal -->
 <livewire:frontend.component.quote-modal />
 <!-- quote-modal end -->
+@endif
 
 
 @endsection
-

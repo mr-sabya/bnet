@@ -23,7 +23,7 @@
                                     <!-- mini cart -->
                                     <livewire:frontend.theme.mini-cart />
                                     <!-- mini cart end -->
-                                    <li class="header-btn"><a href="contact.html" class="btn transparent-btn">Get a Quote</a></li>
+                                    <li class="header-btn"><a href="{{ route('quote') }}" wire:navigate class="btn transparent-btn">Get a Quote</a></li>
                                 </ul>
                             </div>
                         </nav>

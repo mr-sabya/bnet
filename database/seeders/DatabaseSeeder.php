@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             SettingSeeder::class,
             HomePageSeeder::class,
+            AboutPageSeeder::class,
+            SkillSeeder::class,
         ]);
     }
 }

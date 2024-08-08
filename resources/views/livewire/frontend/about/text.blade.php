@@ -3,13 +3,13 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="about-img-wrap">
-                    <img src="{{ url('assets/frontend/imgs/images/about_img01.jpg') }}" alt="">
-                    <img src="{{ url('assets/frontend/imgs/images/about_img02.jpg') }}" class="main-img" alt="">
+                    <img src="{{ getFileUrl($about->about_image_1) }}" alt="">
+                    <img src="{{ getFileUrl($about->about_image_2) }}" class="main-img" alt="">
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="section-title mb-30">
-                    <h2 class="title">We Provide Best Internet Connection World Wide</h2>
+                    <h2 class="title">{{ $about->about_title }}</h2>
                 </div>
                 <div class="about-content">
                     <p>Yes! You'll be able to use your T-Mobile Home Internet to connect your computer, phone,
