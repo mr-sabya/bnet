@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Frontend\About;
 
+use App\Models\AboutList;
 use App\Models\AboutPage;
 use Livewire\Component;
 
@@ -11,6 +12,7 @@ class Text extends Component
     {
         return view('livewire.frontend.about.text',[
             'about' => AboutPage::where('id', 1)->first(),
+            'lists' => AboutList::all(),
         ]);
     }
 }

@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             HomePageSeeder::class,
             AboutPageSeeder::class,
             SkillSeeder::class,
+            AboutListSeeder::class,
         ]);
     }
 }

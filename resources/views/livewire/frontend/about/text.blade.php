@@ -16,12 +16,9 @@
                         and numerous other devices. Gauge your students’ skill level with the initial test and
                         follow their progress.</p>
                     <ul class="about-list">
-                        <li>Expert technical team</li>
-                        <li>Best network</li>
-                        <li>50+ coverage areas</li>
-                        <li>24/7 quick support</li>
-                        <li>Reasonable price packages</li>
-                        <li>Trusted & recommended</li>
+                        @foreach($lists as $list)
+                        <li>{{ $list->name }}</li>
+                        @endforeach
                     </ul>
                     <a href="contact.html" class="btn transparent-btn">Get Started</a>
                 </div>
