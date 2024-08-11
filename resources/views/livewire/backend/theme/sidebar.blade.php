@@ -33,24 +33,35 @@
 
             </ul>
         </li>
+
         <li class="nav-menu-item {{ Route::is('admin.ftp.index') ? 'router-link-active' : '' }}">
             <a href="{{ route('admin.ftp.index') }}" wire:navigate>
                 <i class="feather icon-message-circle"></i>
                 <span class="nav-menu-item-title">FTP Server</span>
             </a>
         </li>
+
         <li class="nav-menu-item {{ Route::is('admin.livetv.index') ? 'router-link-active' : '' }}">
             <a href="{{ route('admin.livetv.index') }}" wire:navigate>
                 <i class="feather icon-calendar"></i>
                 <span class="nav-menu-item-title">Live TV</span>
             </a>
         </li>
+
         <li class="nav-menu-item {{ Route::is('admin.package.index') ? 'router-link-active' : '' }}">
             <a href="{{ route('admin.package.index') }}" wire:navigate>
                 <i class="feather icon-calendar"></i>
                 <span class="nav-menu-item-title">Package</span>
             </a>
         </li>
+
+        <li class="nav-menu-item {{ Route::is('admin.media.index') ? 'router-link-active' : '' }}">
+            <a href="{{ route('admin.media.index') }}" wire:navigate>
+                <i class="feather icon-calendar"></i>
+                <span class="nav-menu-item-title">Media</span>
+            </a>
+        </li>
+
         <li class="nav-group-title">USER INTERFACE</li>
 
         <li class="nav-submenu {{ Route::is('admin.setting.index') || Route::is('admin.setting.home') || Route::is('admin.setting.about') ? 'open' : '' }}">
@@ -65,10 +76,9 @@
                     <a href="{{ route('admin.setting.index') }}" wire:navigate>Site Setting</a>
                 </li>
 
-
-
             </ul>
         </li>
+
         <li class="nav-submenu {{ Route::is('admin.home.banner') ? 'open' : '' }}">
             <a class="nav-submenu-title">
                 <i class="feather icon-package"></i>
@@ -80,9 +90,6 @@
                 <li class="nav-menu-item {{ Route::is('admin.home.banner') ? 'router-link-active' : '' }}">
                     <a href="{{ route('admin.home.banner') }}" wire:navigate>Banner Section</a>
                 </li>
-
-
-
 
             </ul>
         </li>

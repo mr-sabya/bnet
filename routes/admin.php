@@ -15,6 +15,9 @@ Route::name('admin.')->group(function () {
         Route::get('live-tv', [\App\Http\Controllers\Backend\LiveTvController::class, 'index'])->name('livetv.index');
         Route::get('package', [\App\Http\Controllers\Backend\PackageController::class, 'index'])->name('package.index');
 
+
+        Route::get('media', [\App\Http\Controllers\Backend\ImageController::class, 'index'])->name('media.index');
+
         Route::prefix('setting')->group(function () {
             Route::get('site', [\App\Http\Controllers\Backend\SettingController::class, 'index'])->name('setting.index');
         });
