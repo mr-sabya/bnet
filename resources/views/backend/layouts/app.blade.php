@@ -12,6 +12,7 @@
     <!-- Core css -->
     <link href="{{ asset('assets/backend/css/app.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/backend/vendors/toastr/toastr.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/backend/css/custom.css') }}" rel="stylesheet">
     @livewireStyles
 </head>
 

@@ -14,5 +14,13 @@ Route::name('admin.')->group(function () {
         Route::get('ftp-server', [\App\Http\Controllers\Backend\FtpController::class, 'index'])->name('ftp.index');
         Route::get('live-tv', [\App\Http\Controllers\Backend\LiveTvController::class, 'index'])->name('livetv.index');
         Route::get('package', [\App\Http\Controllers\Backend\PackageController::class, 'index'])->name('package.index');
+
+        Route::prefix('setting')->group(function () {
+            Route::get('site', [\App\Http\Controllers\Backend\SettingController::class, 'index'])->name('setting.index');
+        });
+
+        Route::prefix('home-page')->group(function () {
+            Route::get('banner-section', [\App\Http\Controllers\Backend\HomepageController::class, 'bannerSection'])->name('home.banner');
+        });
     });
 });

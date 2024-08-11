@@ -26,11 +26,11 @@
                 <li class="nav-menu-item {{ Route::is('admin.district.index') ? 'router-link-active' : '' }}">
                     <a href="{{ route('admin.district.index')}}" wire:navigate>District</a>
                 </li>
-                
+
                 <li class="nav-menu-item {{ Route::is('admin.city.index') ? 'router-link-active' : '' }}">
                     <a href="{{ route('admin.city.index')}}" wire:navigate>City</a>
                 </li>
-    
+
             </ul>
         </li>
         <li class="nav-menu-item {{ Route::is('admin.ftp.index') ? 'router-link-active' : '' }}">
@@ -53,40 +53,37 @@
         </li>
         <li class="nav-group-title">USER INTERFACE</li>
 
-        <li class="nav-submenu">
+        <li class="nav-submenu {{ Route::is('admin.setting.index') || Route::is('admin.setting.home') || Route::is('admin.setting.about') ? 'open' : '' }}">
             <a class="nav-submenu-title">
                 <i class="feather icon-package"></i>
-                <span>Components</span>
+                <span>Setting</span>
                 <i class="nav-submenu-arrow"></i>
             </a>
-            <ul class="nav-menu menu-collapse">
-                <li class="nav-menu-item">
-                    <a href="v-accordion.html">Accordion</a>
+            <ul class="nav-menu menu-collapse {{ Route::is('admin.setting.index') || Route::is('admin.setting.home') || Route::is('admin.setting.about') ? 'd-block' : '' }}">
+
+                <li class="nav-menu-item {{ Route::is('admin.setting.index') ? 'router-link-active' : '' }}">
+                    <a href="{{ route('admin.setting.index') }}" wire:navigate>Site Setting</a>
                 </li>
-                <li class="nav-menu-item">
-                    <a href="v-carousel.html">Carousel</a>
+
+
+
+            </ul>
+        </li>
+        <li class="nav-submenu {{ Route::is('admin.home.banner') ? 'open' : '' }}">
+            <a class="nav-submenu-title">
+                <i class="feather icon-package"></i>
+                <span>Home Page</span>
+                <i class="nav-submenu-arrow"></i>
+            </a>
+            <ul class="nav-menu menu-collapse {{ Route::is('admin.home.banner') ? 'd-block' : '' }}">
+
+                <li class="nav-menu-item {{ Route::is('admin.home.banner') ? 'router-link-active' : '' }}">
+                    <a href="{{ route('admin.home.banner') }}" wire:navigate>Banner Section</a>
                 </li>
-                <li class="nav-menu-item">
-                    <a href="v-dropdown.html">Dropdown</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="v-modals.html">Modals</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="v-toasts.html">Toasts</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="v-popover.html">Popover</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="v-progress.html">Progress</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="v-tabs.html">Tabs</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="v-tooltips.html">Tooltips</a>
-                </li>
+
+
+
+
             </ul>
         </li>
         <li class="nav-submenu">
