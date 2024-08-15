@@ -10,51 +10,50 @@
             <div class="card-body">
                 <form action="">
                     <div class="mb-3">
-                        <label for="banner_heading" class="form-label">Banner Heading</label>
-                        <input type="text" id="banner_heading" class="form-control" wire:model.live="banner_heading">
-                        @if($banner_heading == '')
-                        @error('banner_heading') <span class="text-danger">{{ $message }}</span> @enderror
+                        <label for="video_section_heading" class="form-label">Section Heading</label>
+                        <input type="text" id="video_section_heading" class="form-control" wire:model.live="video_section_heading">
+                        @if($video_section_heading == '')
+                        @error('video_section_heading') <span class="text-danger">{{ $message }}</span> @enderror
                         @endif
                     </div>
 
                     <div class="mb-3">
-                        <label for="banner_text" class="form-label">Sub Heading</label>
-                        <input type="text" id="banner_text" class="form-control" wire:model.live="banner_text">
-                        @if($banner_text == '')
-                        @error('banner_text') <span class="text-danger">{{ $message }}</span> @enderror
+                        <label for="video_section_text" class="form-label">Section Text</label>
+                        <textarea id="video_section_text" class="form-control" wire:model.live="video_section_text"></textarea>
+                        @if($video_section_text == '')
+                        @error('video_section_text') <span class="text-danger">{{ $message }}</span> @enderror
                         @endif
                     </div>
 
                     <div class="mb-3">
-                        <label for="banner_package_price" class="form-label">Package Price</label>
-                        <input type="number" id="banner_package_price" class="form-control" wire:model.live="banner_package_price">
-                        @if($banner_package_price == '')
-                        @error('banner_package_price') <span class="text-danger">{{ $message }}</span> @enderror
+                        <label for="video_section_video" class="form-label">Section Video</label>
+                        <input type="text" id="video_section_video" class="form-control" wire:model.live="video_section_heading">
+                        @if($video_section_video == '')
+                        @error('video_section_video') <span class="text-danger">{{ $message }}</span> @enderror
                         @endif
                     </div>
 
 
                     <div class="mb-3">
-                        <label for="" class="form-label">Banner Image</label>
-                        <label for="banner_image" class="image-label">
+                        <label for="" class="form-label">Section Background</label>
+                        <label for="video_section_image" class="image-label">
                             <button type="button" class="btn btn-light rounded-0" wire:click="resetImage">
                                 <i class="icon-refresh-ccw feather me-2"></i>Reset
                             </button>
                             <a href="javascript:void(0)" wire:click="openImageModal">
-                                @if($banner_image)
-                                <img src="{{ getFileUrl($banner_image) }}" />
-                                @elseif($homepage->banner_image)
-                                <img src="{{ getFileUrl($homepage->banner_image) }}" />
+                                @if($video_section_image)
+                                <img src="{{ getFileUrl($video_section_image) }}" />
+                                @elseif($homepage->video_section_image)
+                                <img src="{{ getFileUrl($homepage->video_section_image) }}" />
                                 @else
                                 <h4>Upload Image</h4>
                                 @endif
                             </a>
                         </label>
-                        @if($banner_image == '')
-                        @error('banner_image') <span class="text-danger">{{ $message }}</span> @enderror
+                        @if($video_section_image == '')
+                        @error('video_section_image') <span class="text-danger">{{ $message }}</span> @enderror
                         @endif
                     </div>
-
 
 
 

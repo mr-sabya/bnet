@@ -9,8 +9,6 @@
             </div>
             <div class="card-body">
                 <form action="">
-
-
                     <div class="mb-3">
                         <label for="site_title" class="form-label">Website Title</label>
                         <input type="text" id="site_title" class="form-control" wire:model.live="site_title">
@@ -31,22 +29,20 @@
                         <div class="col-lg-4">
                             <div class="mb-3">
                                 <label for="" class="form-label">Logo</label>
-                                <label for="logo" class="image-label">
-                                    <button type="button" class="btn btn-light rounded-0" wire:click="resetImage('logo')"><i class="icon-refresh-ccw feather me-2"></i>Reset</button>
-                                    @if($uploadLogo == true)
-                                    @if($logo)
-                                    <img src="{{ $logo->temporaryUrl() }}" />
-                                    @else
-                                    <h4>Upload Image</h4>
-                                    @endif
-                                    @elseif($uploadLogo == false)
-                                    <img src="{{ getFileUrl($setting->logo) }}" />
-                                    @else
-                                    <h4>Upload Image</h4>
-                                    @endif
-
+                                <label class="image-label">
+                                    <button type="button" class="btn btn-light rounded-0" wire:click="resetImage('logo')">
+                                        <i class="icon-refresh-ccw feather me-2"></i>Reset
+                                    </button>
+                                    <a href="javascript:void(0)" wire:click="openImageModal('logo')">
+                                        @if($logo)
+                                        <img src="{{ getFileUrl($logo) }}" />
+                                        @elseif($setting->logo)
+                                        <img src="{{ getFileUrl($setting->logo) }}" />
+                                        @else
+                                        <h4>Upload Image</h4>
+                                        @endif
+                                    </a>
                                 </label>
-                                <input type="file" id="logo" class="form-control d-none" wire:model.live="logo" wire:click="activeImageUpload('logo')">
                                 @if($logo == '')
                                 @error('logo') <span class="text-danger">{{ $message }}</span> @enderror
                                 @endif
@@ -57,21 +53,19 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">White Logo</label>
                                 <label for="white_logo" class="image-label bg-dark">
-                                    <button type="button" class="btn btn-light rounded-0" wire:click="resetImage('whitelogo')"><i class="icon-refresh-ccw feather me-2"></i>Reset</button>
-                                    @if($uploadwhiteLogo == true)
-                                    @if($white_logo)
-                                    <img src="{{ $white_logo->temporaryUrl() }}" />
-                                    @else
-                                    <h4>Upload Image</h4>
-                                    @endif
-                                    @elseif($uploadwhiteLogo == false)
-                                    <img src="{{ getFileUrl($setting->white_logo) }}" />
-                                    @else
-                                    <h4>Upload Image</h4>
-                                    @endif
-
+                                    <button type="button" class="btn btn-light rounded-0" wire:click="resetImage('whitelogo')">
+                                        <i class="icon-refresh-ccw feather me-2"></i>Reset
+                                    </button>
+                                    <a href="javascript:void(0)" wire:click="openImageModal('white_logo')">
+                                        @if($white_logo)
+                                        <img src="{{ getFileUrl($white_logo) }}" />
+                                        @elseif($setting->white_logo)
+                                        <img src="{{ getFileUrl($setting->white_logo) }}" />
+                                        @else
+                                        <h4>Upload Image</h4>
+                                        @endif
+                                    </a>
                                 </label>
-                                <input type="file" id="white_logo" class="form-control d-none" wire:model.live="white_logo" wire:click="activeImageUpload('whitelogo')">
                                 @if($white_logo == '')
                                 @error('white_logo') <span class="text-danger">{{ $message }}</span> @enderror
                                 @endif
@@ -82,25 +76,19 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Favicon</label>
                                 <label for="favicon" class="image-label">
-                                    <button type="button" class="btn btn-light rounded-0" wire:click="resetImage('favicon')"><i class="icon-refresh-ccw feather me-2"></i>Reset</button>
-                                    @if($uploadFavicon == true)
-                                    @if($favicon)
-                                    <div class="p-5">
-                                        <img src="{{ $favicon->temporaryUrl() }}" />
-                                    </div>
-                                    @else
-                                    <h4>Upload Image</h4>
-                                    @endif
-                                    @elseif($uploadFavicon == false)
-                                    <div class="p-5">
+                                    <button type="button" class="btn btn-light rounded-0" wire:click="resetImage('favicon')">
+                                        <i class="icon-refresh-ccw feather me-2"></i>Reset
+                                    </button>
+                                    <a href="javascript:void(0)" wire:click="openImageModal('favicon')">
+                                        @if($favicon)
+                                        <img src="{{ getFileUrl($favicon) }}" />
+                                        @elseif($setting->favicon)
                                         <img src="{{ getFileUrl($setting->favicon) }}" />
-                                    </div>
-                                    @else
-                                    <h4>Upload Image</h4>
-                                    @endif
-
+                                        @else
+                                        <h4>Upload Image</h4>
+                                        @endif
+                                    </a>
                                 </label>
-                                <input type="file" id="favicon" class="form-control d-none" wire:model.live="favicon" wire:click="activeImageUpload('favicon')">
                                 @if($favicon == '')
                                 @error('favicon') <span class="text-danger">{{ $message }}</span> @enderror
                                 @endif
@@ -158,7 +146,7 @@
                         @error('twitter') <span class="text-danger">{{ $message }}</span> @enderror
                         @endif
                     </div>
-                    
+
                     <div class="mb-3">
                         <label for="instagram" class="form-label">Instagram</label>
                         <input type="text" id="instagram" class="form-control" wire:model.live="instagram">
@@ -175,14 +163,60 @@
                         @endif
                     </div>
 
-
-
-
                     <button wire:click.prevent="save()" class="btn btn-primary" type="submit">Save</button>
 
 
                 </form>
             </div>
+
+
+            <!-- media modal -->
+            <div wire:ignore.self class="modal fade" id="mediaModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Select Media</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-2">
+                                @forelse($images as $image)
+                                <div class="col-lg-3">
+                                    <a href="javascript:void(0)" wire:click="selectImage({{ $image->id }})" class="{{ $selectId == $image->id ? 'active' : '' }}" data-bs-dismiss="modal">
+                                        <div class="media-card">
+                                            <div class="media">
+                                                <img src="{{ getFileUrl($image->image) }}" alt="">
+                                            </div>
+                                            <div class="title">
+                                                <h5>{{ $image->name }}</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                @empty
+                                <div class="col-lg-12">
+                                    <p>No Media Found!!</p>
+                                </div>
+                                @endforelse
+                            </div>
+                            {{ $images->links() }}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('livewire:init', function() {
+        Livewire.on('open-modal', () => {
+            $('#mediaModal').modal('show');
+        });
+    });
+</script>

@@ -24,6 +24,9 @@ Route::name('admin.')->group(function () {
 
         Route::prefix('home-page')->group(function () {
             Route::get('banner-section', [\App\Http\Controllers\Backend\HomepageController::class, 'bannerSection'])->name('home.banner');
+            Route::get('price-section', [\App\Http\Controllers\Backend\HomepageController::class, 'priceSection'])->name('home.price');
+            Route::get('video-section', [\App\Http\Controllers\Backend\HomepageController::class, 'videoSection'])->name('home.video');
+            Route::get('service-section', [\App\Http\Controllers\Backend\HomepageController::class, 'serviceSection'])->name('home.service');
         });
     });
 });

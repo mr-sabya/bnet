@@ -2,33 +2,21 @@
 
 namespace App\Livewire\Backend\Setting;
 
+use App\Models\Image;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\WithoutUrlPagination;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
-    use WithFileUploads;
-    public $page = "Setting", $setting, $uploadLogo = false, $uploadwhiteLogo = false, $uploadFavicon = false;
+    use WithFileUploads, WithPagination, WithoutUrlPagination;
+    public $page = "Setting", $setting;
     public $site_title, $tagline, $logo, $white_logo, $favicon, $address, $email, $phone, $opening_time, $facebook, $twitter, $instagram, $linkedin;
+    public $fieldName, $selectId, $logoSelectID, $whitelogoSelectID, $faviconSelectID, $showModal = false;
 
-
-
-    /**
-     * Active image upload and preview
-     * @return void
-     */
-    public function activeImageUpload($image)
-    {
-        if ($image == 'logo') {
-            $this->uploadLogo = true;
-        } elseif ($image == 'whitelogo') {
-            $this->uploadwhiteLogo = true;
-        } elseif ($image == 'favicon') {
-            $this->uploadFavicon = true;
-        }
-    }
     /**
      * reset image upload and preview
      * @return void
@@ -36,11 +24,57 @@ class Index extends Component
     public function resetImage($image)
     {
         if ($image == 'logo') {
-            $this->uploadLogo = false;
+            $this->logoSelectID = '';
+            if ($this->setting->logo != null) {
+                $this->logo = '';
+            }
         } elseif ($image == 'whitelogo') {
-            $this->uploadwhiteLogo = false;
+            $this->whitelogoSelectID = '';
+            if ($this->setting->white_logo != null) {
+                $this->white_logo = '';
+            }
         } elseif ($image == 'favicon') {
-            $this->uploadFavicon = false;
+            $this->faviconSelectID = '';
+            if ($this->setting->favicon != null) {
+                $this->favicon = '';
+            }
+        }
+    }
+
+    public function openImageModal($fieldName)
+    {
+        $this->fieldName = $fieldName;
+
+        if ($fieldName == 'logo') {
+            $this->selectId = $this->logoSelectID;
+        } elseif ($fieldName == 'white_logo') {
+            $this->selectId = $this->whitelogoSelectID;
+        } elseif ($fieldName == 'favicon') {
+            $this->selectId = $this->faviconSelectID;
+        }
+
+        $this->dispatch('open-modal');
+    }
+
+    public function selectImage($id)
+    {
+        $image = Image::find($id);
+        $this->selectId = $image->id;
+
+        if ($this->fieldName == 'logo') {
+            $this->logoSelectID = $image->id;
+            $this->logo = $image->image;
+        }
+
+
+        if ($this->fieldName == 'white_logo') {
+            $this->whitelogoSelectID = $image->id;
+            $this->white_logo = $image->image;
+        }
+
+        if ($this->fieldName == 'favicon') {
+            $this->faviconSelectID = $image->id;
+            $this->favicon = $image->image;
         }
     }
 
@@ -65,33 +99,21 @@ class Index extends Component
     {
         $setting = Setting::where('id', 1)->first();
 
-
-        if ($this->logo) {
-            Storage::delete($setting->logo);
-            $image_name = $this->logo->getClientOriginalName();
-            $image_url = "public/site";
-            $this->logo->storeAs($image_url, $image_name);
-            $logo_name = $image_url . '/' . $image_name;
-        } else {
+        if($this->logo){
+            $logo_name = $this->logo;
+        }else{
             $logo_name = $setting->logo;
         }
 
-
-        if ($this->white_logo) {
-            $image_name = md5($this->white_logo . microtime()) . '.' . $this->white_logo->extension();
-            $image_url = "public/site";
-            $this->white_logo->storeAs($image_url, $image_name);
-            $white_logo_name = $image_url . '/' . $image_name;
-        } else {
+        if($this->white_logo){
+            $white_logo_name = $this->white_logo;
+        }else{
             $white_logo_name = $setting->white_logo;
         }
 
-        if ($this->favicon) {
-            $image_name = md5($this->favicon . microtime()) . '.' . $this->favicon->extension();
-            $image_url = "public/site";
-            $this->favicon->storeAs($image_url, $image_name);
-            $favicon_name = $image_url . '/' . $image_name;
-        } else {
+        if($this->favicon){
+            $favicon_name = $this->favicon;
+        }else{
             $favicon_name = $setting->favicon;
         }
 
@@ -111,11 +133,13 @@ class Index extends Component
             'linkedin' => $this->linkedin,
         ]);
 
-        $this->dispatch('alert', ['type' => 'success',  'message' =>'Setting has been updated successfully!']);
+        $this->dispatch('alert', ['type' => 'success',  'message' => 'Setting has been updated successfully!']);
     }
 
     public function render()
     {
-        return view('livewire.backend.setting.index');
+        return view('livewire.backend.setting.index', [
+            'images' => Image::orderBy('id', 'DESC')->paginate(12),
+        ]);
     }
 }

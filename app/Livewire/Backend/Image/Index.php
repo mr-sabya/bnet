@@ -55,12 +55,6 @@ class Index extends Component
         $this->updateData = false;
     }
 
-
-    public function getFileInfo()
-    {
-        $this->name = $this->image->getClientOriginalName();
-    }
-
     /**
      * store the user inputted post data in the posts table
      * @return void
@@ -69,7 +63,9 @@ class Index extends Component
     {
         $this->validate([
             'name' => 'required|string|max:255',
+            'alt_text' => 'required|string|max:255',
             'link' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         try {
@@ -109,9 +105,12 @@ class Index extends Component
         try {
             $media = Image::findOrFail($id);
             $this->media = $media;
+            $this->mediaId = $media->id;
             $this->name = $media->name;
+            $this->alt_text = $media->alt_text;
+            $this->link = $media->link;
 
-
+            $this->uploadImage = false;
             $this->updateData = true;
             $this->addData = false;
         } catch (\Exception $ex) {
@@ -127,20 +126,31 @@ class Index extends Component
      */
     public function update()
     {
-        $media = Image::find($this->imageId);
+        $media = Image::find($this->mediaId);
 
         $this->validate([
             'name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
+            'alt_text' => 'required|string|max:255',
             'link' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         try {
 
+            if ($this->image) {
+                $image_name = $this->image->getClientOriginalName();
+                $image_url = "public/site";
+                $this->image->storeAs($image_url, $image_name);
+                $file_name = $image_url . '/' . $image_name;
+            } else {
+                $file_name = $media->image;
+            }
+
             $media->update([
                 'name' => $this->name,
-                'link' => $this->link,
+                'image' => $file_name,
                 'alt_text' => $this->alt_text,
+                'link' => $this->link,
             ]);
 
             $this->dispatch('alert', ['type' => 'success',  'message' => $this->page . ' has been updated successfully!']);

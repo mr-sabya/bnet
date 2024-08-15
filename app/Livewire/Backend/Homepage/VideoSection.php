@@ -8,11 +8,11 @@ use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
 
-class BannerSection extends Component
+class VideoSection extends Component
 {
     use WithPagination, WithoutUrlPagination;
     public $page = "Banner Section", $homepage;
-    public $banner_heading, $banner_text, $banner_image, $banner_package_price, $selectId;
+    public $video_section_heading, $video_section_text, $video_section_image, $video_section_video, $selectId;
     /**
      * reset image upload and preview
      * @return void
@@ -20,8 +20,8 @@ class BannerSection extends Component
     public function resetImage()
     {
 
-        if ($this->homepage->banner_image != null) {
-            $this->banner_image = '';
+        if ($this->homepage->video_section_image != null) {
+            $this->video_section_image = '';
         }
     }
 
@@ -34,7 +34,7 @@ class BannerSection extends Component
     {
         $image = Image::find($id);
         $this->selectId = $image->id;
-        $this->banner_image = $image->image;
+        $this->video_section_image = $image->image;
     }
 
 
@@ -42,9 +42,9 @@ class BannerSection extends Component
     {
         $homepage = HomePage::where('id', 1)->first();
         $this->homepage = $homepage;
-        $this->banner_heading = $homepage->banner_heading;
-        $this->banner_text = $homepage->banner_text;
-        $this->banner_package_price = $homepage->banner_package_price;
+        $this->video_section_heading = $homepage->video_section_heading;
+        $this->video_section_text = $homepage->video_section_text;
+        $this->video_section_video = $homepage->video_section_video;
 
     }
 
@@ -52,17 +52,17 @@ class BannerSection extends Component
     {
         $homepage = HomePage::where('id', 1)->first();
 
-        if ($this->banner_image) {
-            $image_name = $this->banner_image;
+        if ($this->video_section_image) {
+            $image_name = $this->video_section_image;
         } else {
-            $image_name = $homepage->banner_image;
+            $image_name = $homepage->video_section_image;
         }
 
         $homepage->update([
-            'banner_heading' => $this->banner_heading,
-            'banner_text' => $this->banner_text,
-            'banner_image' => $image_name,
-            'banner_package_price' => $this->banner_package_price,
+            'video_section_heading' => $this->video_section_heading,
+            'video_section_text' => $this->video_section_text,
+            'video_section_image' => $image_name,
+            'video_section_video' => $this->video_section_video,
         ]);
 
         $this->dispatch('alert', ['type' => 'success',  'message' => $this->page.' has been updated successfully!']);
@@ -70,8 +70,9 @@ class BannerSection extends Component
 
     public function render()
     {
-        return view('livewire.backend.homepage.banner-section', [
+        return view('livewire.backend.homepage.video-section', [
             'images' => Image::orderBy('id', 'DESC')->paginate(12),
         ]);
     }
+
 }

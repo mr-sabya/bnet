@@ -12,4 +12,21 @@ class HomepageController extends Controller
     {
         return view('backend.home-page.banner');
     }
+
+    public function priceSection()
+    {
+        return view('backend.home-page.price');
+    }
+
+    public function videoSection()
+    {
+        return view('backend.home-page.video');
+    }
+
+
+    // service section
+    public function serviceSection()
+    {
+        return view('backend.home-page.service');
+    }
 }

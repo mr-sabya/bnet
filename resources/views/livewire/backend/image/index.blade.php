@@ -12,9 +12,8 @@
                     @if($media)
                     <input type="hidden" wire:model="mediaId">
                     @endif
-{{ $image }}
                     <div class="mb-3">
-                        <label for="" class="form-label">Favicon</label>
+                        <label for="" class="form-label">Image</label>
                         <label for="image" class="image-label">
                             <button type="button" class="btn btn-light rounded-0" wire:click="resetImage"><i class="icon-refresh-ccw feather me-2"></i>Reset</button>
                             @if($uploadImage == true)
@@ -27,14 +26,14 @@
                             @endif
                             @elseif($uploadImage == false)
                             <div class="p-5">
-                                <img src="{{ getFileUrl($setting->image) }}" />
+                                <img src="{{ getFileUrl($media->image) }}" />
                             </div>
                             @else
                             <h4>Upload Image</h4>
                             @endif
 
                         </label>
-                        <input type="file" id="image" class="form-control d-none" wire:model.live="image" wire:change="getFileInfo" x-on:change="getFileInfo" wire:click="activeImageUpload">
+                        <input type="file" id="image" class="form-control d-none" wire:model.live="image" wire:click="activeImageUpload">
                         @if($image == '')
                         @error('image') <span class="text-danger">{{ $message }}</span> @enderror
                         @endif
@@ -81,10 +80,33 @@
                 <h4 class="mb-0">{{ $page }} List</h4>
             </div>
             <div class="card-body">
+                <div class="row g-4">
+                    @forelse($images as $image)
+                    <div class="col-lg-4">
+                        <div class="media-card">
+                            <div class="action">
+                                <button wire:click="edit({{ $image->id }})" class="action-btn"><i class="icon-edit feather"></i></button>
+                                <a href="" class="action-btn"><i class="icon-trash feather"></i></a>
+                            </div>
+                            <div class="media">
+                                <img src="{{ getFileUrl($image->image) }}" alt="">
+                            </div>
+                            <div class="title">
+                                <a href="#"><h5>{{ $image->name }}</h5></a>
+                            </div>
+                        </div>
 
+
+                    </div>
+                    @empty
+                    <div class="col-lg-12">
+                        <p>No Media Found!!</p>
+                    </div>
+                    @endforelse
+                </div>
             </div>
             <div class="card-footer">
-
+                {{ $images->links() }}
             </div>
         </div>
 
