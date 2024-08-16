@@ -16,20 +16,20 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <div class="fact-item">
-                                    <h4 class="title"><span class="odometer" data-count="4"></span>K</h4>
-                                    <p>Ultra HD Quality</p>
+                                    <h4 class="title"><span class="odometer" data-count="{{ $home->counter_1 }}"></span>K</h4>
+                                    <p>{{ $home->counter_1_text }}</p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="fact-item">
-                                    <h4 class="title"><span class="odometer" data-count="90"></span>+</h4>
-                                    <p>Online TV Channels</p>
+                                    <h4 class="title"><span class="odometer" data-count="{{ $home->counter_2 }}"></span>+</h4>
+                                    <p>{{ $home->counter_2_text }}</p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="fact-item">
-                                    <h4 class="title"><span class="odometer" data-count="350"></span>+</h4>
-                                    <p>Mbps Speed Internet</p>
+                                    <h4 class="title"><span class="odometer" data-count="{{ $home->counter_3 }}"></span>+</h4>
+                                    <p>{{ $home->counter_3_text }}</p>
                                 </div>
                             </div>
                         </div>

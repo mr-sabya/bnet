@@ -16,6 +16,11 @@ Route::name('admin.')->group(function () {
         Route::get('package', [\App\Http\Controllers\Backend\PackageController::class, 'index'])->name('package.index');
 
 
+        Route::get('service', [\App\Http\Controllers\Backend\ServiceController::class, 'index'])->name('service.index');
+        Route::get('service/create', [\App\Http\Controllers\Backend\ServiceController::class, 'create'])->name('service.create');
+        Route::get('service/edit/{id}', [\App\Http\Controllers\Backend\ServiceController::class, 'edit'])->name('service.edit');
+
+
         Route::get('media', [\App\Http\Controllers\Backend\ImageController::class, 'index'])->name('media.index');
 
         Route::prefix('setting')->group(function () {

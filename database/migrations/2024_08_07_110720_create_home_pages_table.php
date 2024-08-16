@@ -29,6 +29,14 @@ return new class extends Migration
             $table->string('video_section_image')->nullable();
             $table->string('video_section_video')->nullable();
 
+            #counter
+            $table->integer('counter_1');
+            $table->string('counter_1_text');
+            $table->integer('counter_2');
+            $table->string('counter_2_text');
+            $table->integer('counter_3');
+            $table->string('counter_3_text');
+
 
             #service section
             $table->string('service_section_heading')->nullable();

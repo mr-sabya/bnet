@@ -100,3 +100,8 @@
 .active .media-card {
     border-color: #009c41;
 }
+
+
+.ql-container{
+    height: 450px;
+}

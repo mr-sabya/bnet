@@ -33,6 +33,13 @@ class HomePageSeeder extends Seeder
                 'video_section_image' => 'site/video_bg.jpg',
                 'video_section_video' => '',
 
+                'counter_1' => 4,
+                'counter_1_text' => 'Ultra HD Quality',
+                'counter_2' => 90,
+                'counter_2_text' => 'Online TV Channels',
+                'counter_3' => 45,
+                'counter_3_text' => 'Mbps Speed Internet',
+
 
                 #service section
                 'service_section_heading' => 'Find Perfect Network Solutions',

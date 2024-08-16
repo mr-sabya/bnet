@@ -28,6 +28,12 @@ class HomePage extends Model
         'video_section_text',
         'video_section_image',
         'video_section_video',
+        'counter_1',
+        'counter_1_text',
+        'counter_2',
+        'counter_2_text',
+        'counter_3',
+        'counter_3_text',
 
 
         'service_section_heading',

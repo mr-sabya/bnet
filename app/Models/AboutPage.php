@@ -23,7 +23,7 @@ class AboutPage extends Model
         'counter_1_text',
         'counter_2',
         'counter_2_text',
-        'counter_3' => '',
+        'counter_3',
         'counter_3_text',
         'counter_4',
         'counter_4_text',

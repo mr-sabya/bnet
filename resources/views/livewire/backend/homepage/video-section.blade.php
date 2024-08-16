@@ -33,6 +33,69 @@
                         @endif
                     </div>
 
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                <label for="counter_1" class="form-label">Counter (1)</label>
+                                <input type="number" id="counter_1" class="form-control" wire:model.live="counter_1">
+                                @if($counter_1 == '')
+                                @error('counter_1') <span class="text-danger">{{ $message }}</span> @enderror
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="mb-3">
+                                <label for="counter_1_text" class="form-label">Counter Text (1)</label>
+                                <input type="text" id="counter_1_text" class="form-control" wire:model.live="counter_1_text">
+                                @if($counter_1_text == '')
+                                @error('counter_1_text') <span class="text-danger">{{ $message }}</span> @enderror
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                <label for="counter_2" class="form-label">Counter (2)</label>
+                                <input type="number" id="counter_2" class="form-control" wire:model.live="counter_2">
+                                @if($counter_2 == '')
+                                @error('counter_2') <span class="text-danger">{{ $message }}</span> @enderror
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="mb-3">
+                                <label for="counter_2_text" class="form-label">Counter Text (2)</label>
+                                <input type="text" id="counter_2_text" class="form-control" wire:model.live="counter_2_text">
+                                @if($counter_2_text == '')
+                                @error('counter_2_text') <span class="text-danger">{{ $message }}</span> @enderror
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                <label for="counter_3" class="form-label">Counter (3)</label>
+                                <input type="number" id="counter_3" class="form-control" wire:model.live="counter_3">
+                                @if($counter_3 == '')
+                                @error('counter_3') <span class="text-danger">{{ $message }}</span> @enderror
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="mb-3">
+                                <label for="counter_3_text" class="form-label">Counter Text (3)</label>
+                                <input type="text" id="counter_3_text" class="form-control" wire:model.live="counter_3_text">
+                                @if($counter_3_text == '')
+                                @error('counter_3_text') <span class="text-danger">{{ $message }}</span> @enderror
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div class="mb-3">
                         <label for="" class="form-label">Section Background</label>

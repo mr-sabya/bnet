@@ -62,15 +62,16 @@
             </a>
         </li>
 
+
         <li class="nav-group-title">USER INTERFACE</li>
 
-        <li class="nav-submenu {{ Route::is('admin.setting.index') || Route::is('admin.setting.home') || Route::is('admin.setting.about') ? 'open' : '' }}">
+        <li class="nav-submenu {{ Route::is('admin.setting.*') ? 'open' : '' }}">
             <a class="nav-submenu-title">
                 <i class="feather icon-package"></i>
                 <span>Setting</span>
                 <i class="nav-submenu-arrow"></i>
             </a>
-            <ul class="nav-menu menu-collapse {{ Route::is('admin.setting.index') || Route::is('admin.setting.home') || Route::is('admin.setting.about') ? 'd-block' : '' }}">
+            <ul class="nav-menu menu-collapse" @if(Route::is('admin.setting.*')) style="display: block" @endif>
 
                 <li class="nav-menu-item {{ Route::is('admin.setting.index') ? 'router-link-active' : '' }}">
                     <a href="{{ route('admin.setting.index') }}" wire:navigate>Site Setting</a>
@@ -79,13 +80,20 @@
             </ul>
         </li>
 
+        <li class="nav-menu-item {{ Route::is('admin.service.*') ? 'router-link-active' : '' }}">
+            <a href="{{ route('admin.service.index') }}" wire:navigate>
+                <i class="feather icon-calendar"></i>
+                <span class="nav-menu-item-title">Service</span>
+            </a>
+        </li>
+
         <li class="nav-submenu {{ Route::is('admin.home.*') ? 'open' : '' }}">
             <a class="nav-submenu-title">
                 <i class="feather icon-package"></i>
                 <span>Home Page</span>
                 <i class="nav-submenu-arrow"></i>
             </a>
-            <ul class="nav-menu menu-collapse {{ Route::is('admin.home.*') ? 'd-block' : '' }}">
+            <ul class="nav-menu menu-collapse" @if(Route::is('admin.home.*')) style="display: block" @endif>
 
                 <li class="nav-menu-item {{ Route::is('admin.home.banner') ? 'router-link-active' : '' }}">
                     <a href="{{ route('admin.home.banner') }}" wire:navigate>Banner Section</a>
@@ -102,7 +110,7 @@
 
             </ul>
         </li>
-       
-    
+
+
     </ul>
 </div>

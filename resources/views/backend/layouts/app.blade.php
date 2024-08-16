@@ -12,6 +12,7 @@
     <!-- Core css -->
     <link href="{{ asset('assets/backend/css/app.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/backend/vendors/toastr/toastr.min.css') }}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
     <link href="{{ asset('assets/backend/css/custom.css') }}" rel="stylesheet">
     @livewireStyles
 </head>
@@ -53,6 +54,8 @@
 
     @yield('page-scripts')
     <script src="{{ asset('assets/backend/vendors/toastr/toastr.min.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 
     <!-- Core JS -->
     <script data-navigate-once="true" src="{{ asset('assets/backend/js/app.min.js') }}"></script>
