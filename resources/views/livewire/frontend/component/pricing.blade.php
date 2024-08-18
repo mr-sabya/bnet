@@ -34,7 +34,7 @@
                         </ul>
                     </div>
                     <h2 class="pricing-three-price"><span>৳</span> {{ $package->price }}<span>/mon</span></h2>
-                    <a href="#" class="btn transparent-btn">Get Started</a>
+                    <a href="{{ route('quote') }}?package={{ $package->id }}" class="btn transparent-btn">Get Started</a>
                 </div>
             </div>
             @endforeach

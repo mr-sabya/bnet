@@ -1,4 +1,4 @@
-<section class="cta-area cta-bg jarallax" data-background="{{ url('assets/frontend/imgs/bg/cta_bg.jpg') }}">
+<section class="cta-area cta-bg jarallax" data-background="{{ getFileUrl($home->cta_section_image) }}">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-9 col-lg-10">

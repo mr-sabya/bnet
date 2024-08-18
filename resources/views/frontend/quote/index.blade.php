@@ -12,8 +12,16 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <h2 class="mb-5 text-center">Get Internet Connection?</h2>
+                @php
+                if(isset($_GET['package'])){
+                $id = $_GET['package'];
+                }else{
+                $id = '';
+                }
 
-                <livewire:frontend.component.quote-form />
+                @endphp
+
+                <livewire:frontend.component.quote-form id="{{ $id }}" />
                 <p class="mt-4 mb-4 text-center border-top pt-2">
                     You will receive our confirmation in your number about our coverage area in your region.
                 </p>

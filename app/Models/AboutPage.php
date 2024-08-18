@@ -19,6 +19,7 @@ class AboutPage extends Model
         'about_text',
         'about_image_1',
         'about_image_2',
+
         'counter_1',
         'counter_1_text',
         'counter_2',
@@ -27,6 +28,7 @@ class AboutPage extends Model
         'counter_3_text',
         'counter_4',
         'counter_4_text',
+        
         'skill_section_heading',
         'skill_section_text',
         'skill_section_image',

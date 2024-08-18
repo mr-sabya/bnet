@@ -1,9 +1,9 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Banner Section')
+@section('title', 'CTA Section')
 
 @section('content')
 <div class="main">
-    <livewire:backend.homepage.banner-section />
+    <livewire:backend.homepage.cta-section />
 </div>
 @endsection

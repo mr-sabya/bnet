@@ -8,54 +8,20 @@
             </div>
         </div>
         <div class="row">
+            @foreach($services as $service)
             <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="services-item">
                     <div class="services-icon">
-                        <i class="flaticon-internet-banking"></i>
+                        <i class="{{ $service->icon }}"></i>
                     </div>
                     <div class="services-content">
-                        <h3 class="title"><a href="services-details.html">Broadband</a></h3>
-                        <p>Many desktop Wifi packages and web page editors now use Lorem Ipsum budgets</p>
+                        <h3 class="title"><a href="services-details.html">{{ $service->name }}</a></h3>
+                        <p>{{ $service->text }}</p>
                         <a href="services-details.html" class="btn btn-link">Read more</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="services-item">
-                    <div class="services-icon">
-                        <i class="flaticon-wifi-router"></i>
-                    </div>
-                    <div class="services-content">
-                        <h3 class="title"><a href="services-details.html">WIFI Internet</a></h3>
-                        <p>Many desktop Wifi packages and web page editors now use Lorem Ipsum budgets</p>
-                        <a href="services-details.html" class="btn btn-link">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="services-item">
-                    <div class="services-icon">
-                        <i class="flaticon-satellite-dish"></i>
-                    </div>
-                    <div class="services-content">
-                        <h3 class="title"><a href="services-details.html">Satellite TV</a></h3>
-                        <p>Many desktop Wifi packages and web page editors now use Lorem Ipsum budgets</p>
-                        <a href="services-details.html" class="btn btn-link">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="services-item">
-                    <div class="services-icon">
-                        <i class="flaticon-sync"></i>
-                    </div>
-                    <div class="services-content">
-                        <h3 class="title"><a href="services-details.html">Netfix TV box</a></h3>
-                        <p>Many desktop Wifi packages and web page editors now use Lorem Ipsum budgets</p>
-                        <a href="services-details.html" class="btn btn-link">Read more</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

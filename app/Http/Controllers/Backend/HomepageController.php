@@ -29,4 +29,23 @@ class HomepageController extends Controller
     {
         return view('backend.home-page.service');
     }
+
+    // cta section
+    public function ctaSection()
+    {
+        return view('backend.home-page.cta');
+    }
+
+    // offer section
+    public function offerSection()
+    {
+        return view('backend.home-page.offer');
+    }
+
+
+    // top package section
+    public function topPackageSection()
+    {
+        return view('backend.home-page.top-package');
+    }
 }

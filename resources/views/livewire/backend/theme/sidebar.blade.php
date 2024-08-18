@@ -107,6 +107,15 @@
                 <li class="nav-menu-item {{ Route::is('admin.home.service') ? 'router-link-active' : '' }}">
                     <a href="{{ route('admin.home.service') }}" wire:navigate>Service Section</a>
                 </li>
+                <li class="nav-menu-item {{ Route::is('admin.home.cta') ? 'router-link-active' : '' }}">
+                    <a href="{{ route('admin.home.cta') }}" wire:navigate>CTA Section</a>
+                </li>
+                <li class="nav-menu-item {{ Route::is('admin.home.offer') ? 'router-link-active' : '' }}">
+                    <a href="{{ route('admin.home.offer') }}" wire:navigate>Offer Section</a>
+                </li>
+                <li class="nav-menu-item {{ Route::is('admin.home.toppackage') ? 'router-link-active' : '' }}">
+                    <a href="{{ route('admin.home.toppackage') }}" wire:navigate>Top Package Section</a>
+                </li>
 
             </ul>
         </li>

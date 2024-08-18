@@ -20,6 +20,13 @@ class QuoteForm extends Component
         $this->address = '';
     }
 
+    public function mount($id = '')
+    {
+        if($id != ''){
+            $this->package_id = $id;
+        }
+    }
+
     public function store()
     {
         // dd($this->email);

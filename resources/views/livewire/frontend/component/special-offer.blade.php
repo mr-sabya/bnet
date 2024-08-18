@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6 order-0 order-lg-2">
                 <div class="special-offer-img wow fadeInRight" data-wow-delay=".2s">
-                    <img src="{{ url('assets/frontend/imgs/images/special_offer_img.jpg') }}" alt="">
+                    <img src="{{ getFileUrl($home->offer_section_image) }}" alt="">
                     <div class="special-offer-text">For Students</div>
                     <div class="special-offer-mbps">
                         <span>UP TO</span>
@@ -22,7 +22,7 @@
                         <h2 class="special-price"><sup>৳</sup>{{ $package->price }}<sub>Monthly</sub> </h2>
                         
                     </div>
-                    <a href="pricing.html" class="btn transparent-btn">Get started</a>
+                    <a href="{{ route('quote') }}?package={{ $package->id }}" class="btn transparent-btn">Get started</a>
                 </div>
             </div>
         </div>
